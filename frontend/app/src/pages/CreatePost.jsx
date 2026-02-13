@@ -8,7 +8,7 @@ const CreatePost = () => {
         className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md w-full transform -rotate-1"
         onSubmit={(e) => e.preventDefault()}
       >
-        {/* Header */}
+        /* Header */
         <h2 className="text-3xl font-black uppercase tracking-tighter mb-6 border-b-4 border-black inline-block">
           Add New Post!
         </h2>
