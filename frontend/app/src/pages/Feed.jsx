@@ -1,6 +1,6 @@
 import React from 'react'
-import {useState} from 'react'
-
+import {useState,useEffect} from 'react'
+import axios from 'axios'
 const Feed = () => {
     const [posts, setposts] = useState([
         {
@@ -9,6 +9,15 @@ const Feed = () => {
             caption:"Sameer"
         }
     ])
+    
+    useEffect(() => {
+      axios.get('http://localhost:3000/posts')
+      .then((res)=>{
+        console.log(res.data)
+      })
+    
+     
+    }, )
     
   return (
     <div className="min-h-screen bg-yellow-300 p-6 font-mono">
@@ -20,7 +29,7 @@ const Feed = () => {
       </header>
 
       {/* Comic Grid (Masonry style) */}
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 max-w-6xl mx-auto">
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 max-w-7xl mx-auto">
         {posts.map((post) => (
           <div 
             key={post.id} 
@@ -34,7 +43,7 @@ const Feed = () => {
                   Visual
                 </span>
                 {/* Halftone Overlay Effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[radial-gradient(black_1px,transparent_0)] [background-size:10px_10px]"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[radial-gradient(black_1px,transparent_0)] bg-size-[10px_10px]"></div>
               </div>
 
               {/* Caption (Speech Bubble Style) */}
