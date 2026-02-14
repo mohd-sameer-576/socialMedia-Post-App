@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios'
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -8,6 +9,13 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Signing up:", formData);
+    axios.post("http://localhost:3000/api/auth/register-user",{
+        username : formData.username,
+        email : formData.email,
+        password : formData.password
+    },{
+        withCredentials:true
+    })
     navigate('/feed');
   };
 
@@ -59,6 +67,7 @@ const Signup = () => {
 
             <button 
               type="submit"
+              onClick={handleSubmit}
               className="w-full bg-yellow-400 border-4 border-black py-4 font-black uppercase tracking-widest shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
             >
               Assemble!

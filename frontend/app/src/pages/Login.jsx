@@ -8,7 +8,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Logging in:", formData);
     axios.post("http://localhost:3000/api/auth/login-user",{
         email: formData.email,
         password: formData.password
