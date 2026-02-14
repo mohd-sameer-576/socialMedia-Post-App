@@ -18,6 +18,31 @@ async function registerUser(req,res) {
     }
 }
 
+async function loginUser(req,res) {
+    const {username, email, password } = req.body;
+    try {
+        
+        const user = await userModel.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: "User not found" });
+        }
+        if (user.password !== password) {
+            return res.status(400).json({ message: "Invalid password" });
+        }
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+        res.cookie('token', token, { httpOnly: true });
+        res.status(200).json({ message: "Login successful", user, token });
+    } catch (error) {
+        res.status(500).json({ message: "Error logging in", error });
+    }
+}
+
+async function logoutUser(req,res) {
+    res.clearCookie('token');
+    res.status(200).json({ message: "Logout successful" });
+}
 module.exports = {
     registerUser,
+    loginUser,
+    logoutUser  
 };

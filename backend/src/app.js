@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const uploadImage = require('./services/storage.service')
 const postModel = require('./models/post.model')
-const authRoutes = require('./routes/post.routes');
+const authRoutes = require('./routes/auth.routes');
 const cookies = require('cookie-parser');
 const cors = require('cors');
 const app = express();
@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cookies());
 app.use('/api/auth', authRoutes);
+
 
 const upload = multer({storage: multer.memoryStorage()});
 
