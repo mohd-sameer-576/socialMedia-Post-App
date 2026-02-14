@@ -9,8 +9,10 @@ const CreatePost = () => {
         e.preventDefault()
         const formData = new FormData(e.target)
 
-        axios.post("http://localhost:3000/api/posts/create-post", formData)
-        
+        axios.post("http://localhost:3000/api/posts/create-post", formData,{
+          withCredentials: true
+        })
+        setCaption('')
     }
   return (
     <div className="min-h-screen bg-yellow-300 flex flex-col items-center justify-center p-4 font-mono">
@@ -46,6 +48,7 @@ const CreatePost = () => {
           </label>
           <textarea
           name='caption'
+          onChange={(e)=>setCaption(e.target.value)}
             placeholder="KRAAAK! POW! Write something..."
             className="w-full border-4 border-black p-3 focus:outline-none focus:bg-pink-50 placeholder-gray-500 font-bold"
             rows="3"

@@ -5,7 +5,12 @@ const cookies = require('cookie-parser');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+  secure: false,  
+  sameSite: "lax" 
+}));
 app.use(express.json());
 app.use(cookies());
 app.use('/api/auth', authRoutes);
@@ -13,18 +18,5 @@ app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 
 
-// app.post('/create-post', upload.single('image'), async (req, res) => {
-//     const result = await uploadImage(req.file.buffer);
-//     const post = new postModel({
-//         image: result,
-//         caption: req.body.caption
-//     })
-//     await post.save();
-//     res.status(201).json({ message: "Post created successfully", post });
-// })
 
-// app.get('/posts', async (req, res) => {
-//     const posts = await postModel.find().sort({ createdAt: -1 });
-//     res.status(200).json({ message: "Posts fetched successfully", posts });
-// })
 module.exports = app;

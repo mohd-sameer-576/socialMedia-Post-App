@@ -18,7 +18,6 @@ const Feed = () => {
 
     fetchPosts();
     
-    // 2. THE FIX: The empty dependency array [] ensures this runs ONLY ONCE
   }, []); 
 
   return (
@@ -28,7 +27,7 @@ const Feed = () => {
           The Feed!
         </h1>
         <button 
-      onClick={() => navigate('/')}
+      onClick={() => navigate('/CreatePost')}
       className="group relative md:text-2xl px-8 py-3 mt-5 font-black uppercase tracking-widest text-[12px]
                  bg-yellow-400 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
                  hover:shadow-none hover:translate-x-0.75 hover:translate-y-0.75
@@ -40,7 +39,7 @@ const Feed = () => {
     </button>
       </header>
 
-      <div className="columns-2 md:columns-3 lg:columns-4 gap-8 space-y-8 max-w-7xl mx-auto">
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 max-w-7xl mx-auto">
         {posts.map((post) => (
           <div 
             key={post._id} 
