@@ -10,7 +10,6 @@ const Feed = () => {
     const fetchPosts = async () => {
       try {
         const res = await axios.get('http://localhost:3000/posts');
-        // Check if your API returns { posts: [...] } or just [...]
         setposts(res.data.posts || res.data); 
       } catch (err) {
         console.error("Error fetching comic feed:", err);
@@ -24,28 +23,28 @@ const Feed = () => {
 
   return (
     <div className="min-h-screen bg-yellow-300 p-6 font-mono">
-      <header className="mb-12 text-center flex justify-around">
-        <h1 className="inline-block bg-white border-8 border-black text-5xl md:text-7xl font-black uppercase p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] -rotate-2">
+      <header className="mb-12 text-center flex gap-5 justify-around">
+        <h1 className="inline-block bg-white border-8 border-black text-xl md:text-2xl font-black uppercase p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] -rotate-2">
           The Feed!
         </h1>
         <button 
       onClick={() => navigate('/')}
-      className="group relative px-8 py-3 mt-5 font-black uppercase tracking-widest text-xl
+      className="group relative md:text-2xl px-8 py-3 mt-5 font-black uppercase tracking-widest text-[12px]
                  bg-yellow-400 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
-                 hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]
+                 hover:shadow-none hover:translate-x-0.75 hover:translate-y-0.75
                  transition-all active:bg-yellow-500 cursor-pointer"
     >
-      <span className="relative z-10">Go to Feed!</span>
+      <span className="relative z-10">Create your post</span>
       {/* Decorative inner line often seen in comic art */}
       <div className="absolute inset-1 border-2 border-black opacity-10 pointer-events-none"></div>
     </button>
       </header>
 
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 max-w-7xl mx-auto">
+      <div className="columns-2 md:columns-3 lg:columns-4 gap-8 space-y-8 max-w-7xl mx-auto">
         {posts.map((post) => (
           <div 
-            key={post._id} // 3. Use _id from your MongoDB/Backend
-            className="break-inside-avoid group cursor-pointer"
+            key={post._id} 
+            className="break-inside-avoid group cursor-pointer "
           >
             <article className="relative bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-150">
               
@@ -68,7 +67,7 @@ const Feed = () => {
               {/* Caption (Speech Bubble Style) */}
               <div className="relative bg-white border-4 border-black p-4 mt-2">
                 {/* Speech bubble tail using standard Tailwind borders */}
-                <div className="absolute -top-4 left-6 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[15px] border-b-black"></div>
+                <div className="absolute -top-4 left-6 w-0 h-0 border-l-10 border-l-transparent border-r-10 border-r-transparent border-b-15 border-b-black"></div>
                 <p className="font-black text-lg leading-tight uppercase">
                    {post.caption || "SILENCE IS GOLDEN..."}
                 </p>
