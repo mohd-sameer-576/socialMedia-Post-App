@@ -39,7 +39,7 @@ const Login = () => {
             <div>
               <label className="block font-black uppercase mb-2">Email Address</label>
               <input 
-                type="text" 
+                type="email" 
                 name='email'
                 required
                 className="w-full border-4 border-black p-3 font-bold focus:bg-yellow-100 outline-none transition-colors"

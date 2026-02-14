@@ -5,14 +5,23 @@ import { useNavigate } from 'react-router-dom';
 const CreatePost = () => {
     const navigate = useNavigate();
     const [caption, setCaption] = useState('');
+    const [image, setImage] = useState(null);
     const handleSubmit = async (e)=>{
         e.preventDefault()
-        const formData = new FormData(e.target)
+         if (!image) {
+    alert("Please select an image");
+    return;
+  }
+        const formData = new FormData()
+        formData.append("image", image);
+  formData.append("caption", caption);
 
         axios.post("http://localhost:3000/api/posts/create-post", formData,{
           withCredentials: true
         })
         setCaption('')
+        setImage(null);
+        e.target.reset();
     }
   return (
     <div className="min-h-screen bg-yellow-300 flex flex-col items-center justify-center p-4 font-mono">
@@ -33,6 +42,7 @@ const CreatePost = () => {
           <input 
           name='image'
             type="file" 
+            onChange={(e) => setImage(e.target.files[0])}
             className="w-full border-4 border-black p-2 bg-blue-100 cursor-pointer 
                        file:mr-4 file:py-2 file:px-4 file:border-0
                        file:text-sm file:font-black file:uppercase
@@ -48,6 +58,7 @@ const CreatePost = () => {
           </label>
           <textarea
           name='caption'
+          value={caption}
           onChange={(e)=>setCaption(e.target.value)}
             placeholder="KRAAAK! POW! Write something..."
             className="w-full border-4 border-black p-3 focus:outline-none focus:bg-pink-50 placeholder-gray-500 font-bold"
