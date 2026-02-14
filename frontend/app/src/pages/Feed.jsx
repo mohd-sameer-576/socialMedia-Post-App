@@ -9,7 +9,7 @@ const Feed = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/posts');
+        const res = await axios.get('http://localhost:3000/api/posts/get-posts');
         setposts(res.data.posts || res.data); 
       } catch (err) {
         console.error("Error fetching comic feed:", err);
