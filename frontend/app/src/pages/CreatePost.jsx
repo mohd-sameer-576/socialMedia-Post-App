@@ -23,6 +23,7 @@ const CreatePost = () => {
         setImage(null);
         e.target.reset();
     }
+    
   return (
     <div className="min-h-screen bg-yellow-300 flex flex-col items-center justify-center p-4 font-mono">
       <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-4 p-4 opacity-10 pointer-events-none">
@@ -86,7 +87,7 @@ const CreatePost = () => {
       </form>
       <button 
       onClick={() => navigate('/feed')}
-      className="group relative px-8 py-3 mt-5 font-black uppercase tracking-widest text-xl
+      className="group relative px-8 py-3 mt-5 z-10 font-black uppercase tracking-widest text-xl
                  bg-yellow-400 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
                  hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]
                  transition-all active:bg-yellow-500 cursor-pointer"
