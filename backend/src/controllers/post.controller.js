@@ -72,9 +72,27 @@ async function updatePost(req,res) {
     }
 }
 
+async function getMyPosts(req, res) {
+  try {
+    const userId = req.user.userId; // from JWT
+
+    const posts = await postModel
+      .find({ author: userId })
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      message: "My posts fetched successfully",
+      posts,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching my posts" });
+  }
+}
+
 module.exports = {
     createPost,
     getPosts,
     deletePost,
-    updatePost
+    updatePost,
+    getMyPosts
 }
