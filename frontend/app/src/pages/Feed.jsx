@@ -22,7 +22,14 @@ const Feed = () => {
 
   return (
     <div className="min-h-screen bg-yellow-300 p-6 font-mono">
-      <header className="mb-12 text-center flex gap-5 justify-around">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-4 p-4 opacity-10 pointer-events-none">
+        <div className="border-4 border-black bg-white"></div>
+        <div className="border-4 border-black bg-yellow-400"></div>
+        <div className="border-4 border-black bg-white"></div>
+        <div className="border-4 border-black bg-white col-span-2"></div>
+        <div className="border-4 border-black bg-yellow-500"></div>
+      </div>
+      <header className="mb-12 z-10 text-center flex gap-5 justify-around">
         <h1 className="inline-block bg-white border-8 border-black text-xl md:text-2xl font-black uppercase p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] -rotate-2">
           The Feed!
         </h1>
@@ -39,11 +46,11 @@ const Feed = () => {
     </button>
       </header>
 
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 max-w-7xl mx-auto">
+      <div className="columns-1 z-10 md:columns-2 lg:columns-3 gap-8 space-y-8 max-w-7xl mx-auto">
         {posts.map((post) => (
           <div 
             key={post._id} 
-            className="break-inside-avoid group cursor-pointer "
+            className="break-inside-avoid group cursor-pointer z-100"
           >
             <article className="relative bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-150">
               
@@ -60,7 +67,7 @@ const Feed = () => {
                 )}
                 
                 {/* Halftone Overlay Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[radial-gradient(black_1px,transparent_0)] [background-size:10px_10px] pointer-events-none"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[radial-gradient(black_1px,transparent_0)] bg-size-[10px_10px] pointer-events-none"></div>
               </div>
 
               {/* Caption (Speech Bubble Style) */}
@@ -85,6 +92,7 @@ const Feed = () => {
           </div>
         ))}
       </div>
+      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(black_2px,transparent_0)] bg-size-[12px_12px] pointer-events-none -z-10"></div>
     </div>
   );
 };

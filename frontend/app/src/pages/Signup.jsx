@@ -30,7 +30,14 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-yellow-300 flex items-center justify-center p-6 font-mono">
-      <div className="max-w-md w-full">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-4 p-4 opacity-10 pointer-events-none">
+        <div className="border-4 border-black bg-white"></div>
+        <div className="border-4 border-black bg-yellow-400"></div>
+        <div className="border-4 border-black bg-white"></div>
+        <div className="border-4 border-black bg-white col-span-2"></div>
+        <div className="border-4 border-black bg-yellow-500"></div>
+      </div>
+      <div className="max-w-md z-10 w-full">
         {/* Comic Header */}
         <div className="text-center mb-10">
           <h1 className="inline-block bg-white border-8 border-black text-3xl font-black uppercase p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] rotate-2">
@@ -88,6 +95,7 @@ const Signup = () => {
           Already a member? <Link to="/login" className="underline decoration-4 hover:bg-white px-1">Log In</Link>
         </p>
       </div>
+      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(black_2px,transparent_0)] bg-size-[12px_12px] pointer-events-none"></div>
     </div>
   );
 };

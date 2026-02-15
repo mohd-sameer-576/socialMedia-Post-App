@@ -25,14 +25,12 @@ async function registerUser(req, res) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
 
     // create user
     const user = await userModel.create({
       username,
       email,
-      password: hashedPassword
+      password
     });
 
     // create token

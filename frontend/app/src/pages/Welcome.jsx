@@ -21,11 +21,11 @@ const Welcome = () => {
         {/* Main Hero Title */}
         <div className="relative mb-12">
           <h1 className="text-6xl md:text-9xl font-black uppercase text-white tracking-tighter [text-shadow:8px_8px_0px_rgba(0,0,0,1)] -rotate-3 leading-none">
-            POW! <br /> <span className="text-black [text-shadow:none]">COMIC</span><span className="text-red-500">FEED</span>
+            POW! <br /> <span className="text-black text-shadow-none">COMIC</span><span className="text-red-500">FEED</span>
           </h1>
           
           {/* Decorative Action Star */}
-          <div className="absolute -top-10 -right-16 w-32 h-32 bg-yellow-400 border-4 border-black rotate-12 flex items-center justify-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hidden md:flex">
+          <div className="absolute -top-10 -right-16 w-32 h-32 bg-yellow-400 border-4 border-black rotate-12 items-center justify-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hidden md:flex">
              <span className="font-black text-2xl uppercase">NEW!</span>
           </div>
         </div>
@@ -41,14 +41,14 @@ const Welcome = () => {
         <div className="flex flex-col md:flex-row gap-8 w-full max-w-2xl">
           <button 
             onClick={() => navigate('/signup')}
-            className="flex-1 bg-red-500 text-white border-4 border-black py-6 text-3xl font-black uppercase tracking-widest shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+            className="flex-1 bg-red-500 text-white border-4 border-black py-6 text-3xl font-black uppercase tracking-widest shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer"
           >
             Join Now!
           </button>
           
           <button 
             onClick={() => navigate('/login')}
-            className="flex-1 bg-white border-4 border-black py-6 text-3xl font-black uppercase tracking-widest shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+            className="flex-1 bg-white border-4 border-black py-6 text-3xl font-black uppercase tracking-widest shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer"
           >
             Log In
           </button>

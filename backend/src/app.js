@@ -12,6 +12,7 @@ app.use(cors({
   sameSite: "lax" 
 }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookies());
 app.use('/api/auth', authRoutes);
 

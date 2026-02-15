@@ -25,8 +25,15 @@ const CreatePost = () => {
     }
   return (
     <div className="min-h-screen bg-yellow-300 flex flex-col items-center justify-center p-4 font-mono">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-4 p-4 opacity-10 pointer-events-none">
+        <div className="border-4 border-black bg-white"></div>
+        <div className="border-4 border-black bg-yellow-400"></div>
+        <div className="border-4 border-black bg-white"></div>
+        <div className="border-4 border-black bg-white col-span-2"></div>
+        <div className="border-4 border-black bg-yellow-500"></div>
+      </div>
       <form 
-        className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md w-full transform -rotate-1"
+        className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md w-full transform -rotate-1 z-10"
         onSubmit={handleSubmit}
       >
       
@@ -88,6 +95,7 @@ const CreatePost = () => {
       {/* Decorative inner line often seen in comic art */}
       <div className="absolute inset-1 border-2 border-black opacity-10 pointer-events-none"></div>
     </button>
+    <div className="absolute inset-0 opacity-15 bg-[radial-gradient(black_2px,transparent_0)] bg-size-[12px_12px] pointer-events-none"></div>
     </div>
   )
 }
