@@ -43,7 +43,8 @@ async function registerUser(req, res) {
     // set cookie
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "lax"
+      sameSite: "none",
+      secure: true
     });
 
     res.status(201).json({
@@ -86,7 +87,8 @@ async function loginUser(req, res) {
 
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "lax"
+      sameSite: "none",
+      secure: true
     });
 
     res.status(200).json({
