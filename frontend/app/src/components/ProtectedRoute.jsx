@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
   const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/auth/me", {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
       withCredentials: true
     })
     .then(() => setAuthorized(true))

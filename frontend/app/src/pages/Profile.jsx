@@ -12,7 +12,7 @@ const Profile = () => {
     const fetchMyPosts = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/posts/my-posts",
+          `${import.meta.env.VITE_API_URL}/api/posts/my-posts`,
           { withCredentials: true },
         );
         setMyPosts(res.data.posts || res.data);
@@ -33,7 +33,7 @@ const Profile = () => {
     if (window.confirm("DELETE THIS PANEL? FOREVER?!")) {
       try {
         await axios.delete(
-          `http://localhost:3000/api/posts/delete-post/${id}`,
+          `${import.meta.env.VITE_API_URL}/api/posts/delete-post/${id}`,
           { withCredentials: true },
         );
         setMyPosts(myPosts.filter((post) => post._id !== id));

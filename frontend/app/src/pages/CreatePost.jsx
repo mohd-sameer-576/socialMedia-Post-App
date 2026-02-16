@@ -16,7 +16,7 @@ const CreatePost = () => {
         formData.append("image", image);
   formData.append("caption", caption);
 
-        axios.post("http://localhost:3000/api/posts/create-post", formData,{
+        axios.post(`${import.meta.env.VITE_API_URL}/api/posts/create-post`, formData,{
           withCredentials: true
         })
         setCaption('')

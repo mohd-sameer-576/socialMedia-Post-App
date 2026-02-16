@@ -11,7 +11,7 @@ const EditPost = () => {
   useEffect(() => {
   const fetchPost = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/posts/get-posts`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/posts/get-posts`);
       
       // Fix: Ensure we are looking at the array, not the wrapper object
       const postsArray = res.data.posts || res.data; 
@@ -37,7 +37,7 @@ const EditPost = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3000/api/posts/update-post/${id}`, 
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/posts/update-post/${id}`, 
         { caption }, 
         { withCredentials: true }
       );

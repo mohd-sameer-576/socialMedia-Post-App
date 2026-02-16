@@ -18,7 +18,7 @@ const Feed = () => {
 
     const fetchPosts = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/posts/get-posts');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/posts/get-posts`);
         setposts(res.data.posts || res.data);
       } catch (err) {
         console.error("Error fetching comic feed:", err);

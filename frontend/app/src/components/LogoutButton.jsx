@@ -6,7 +6,7 @@ const LogoutButton = () => {
 
  const handleLogout = async () => {
   try {
-    await axios.post("http://localhost:3000/api/auth/logout-user", {}, { withCredentials: true });
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/logout-user`, {}, { withCredentials: true });
     
     // CLEAR THE USER DATA
     localStorage.removeItem('user'); 

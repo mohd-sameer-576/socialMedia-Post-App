@@ -11,7 +11,7 @@ const Login = () => {
 
   try {
     const res = await axios.post(
-      "http://localhost:3000/api/auth/login-user",
+      `${import.meta.env.VITE_API_URL}/api/auth/login-user`,
       {
         email: formData.email,
         password: formData.password,
