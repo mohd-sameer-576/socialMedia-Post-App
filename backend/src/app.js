@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors({
   origin: "http://localhost:5173",
-  origin: 'artistnetwork.netlify.app',
+  origin: 'https://artistnetwork.netlify.app',
   credentials: true,
   secure: false,  
   sameSite: "lax" 
