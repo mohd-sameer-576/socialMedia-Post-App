@@ -29,7 +29,7 @@ async function createPost(req, res) {
 
 async function getPosts(req,res) {
     try {
-        const posts = await postModel.find().sort({ createdAt: -1 });
+        const posts = await postModel.find().populate('author', 'username').sort({ createdAt: -1 });
         res.status(200).json({ message: "Posts fetched successfully", posts });
     }
     catch (error) {

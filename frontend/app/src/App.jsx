@@ -14,12 +14,12 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Welcome/>}/>
-        <Route path='/feed' element={<Feed/>}/>
+        <Route path='/feed' element={<ProtectedRoute><Feed/></ProtectedRoute>}/>
         <Route path='/CreatePost' element={<ProtectedRoute><CreatePost/></ProtectedRoute>
         }/>
         <Route path='/Profile' element={<ProtectedRoute><Profile/></ProtectedRoute>
         }/>
-        <Route path="/update-post/:id" element={<EditPost />} />
+        <Route path="/update-post/:id" element={<ProtectedRoute><EditPost/></ProtectedRoute>} />
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Signup' element={<Signup/>}/>
       </Routes>
