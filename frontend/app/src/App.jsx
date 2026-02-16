@@ -6,6 +6,8 @@ import Welcome from './pages/Welcome'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import ProtectedRoute from './components/ProtectedRoute'
+import EditPost from './pages/EditPost';
+import Profile from './pages/Profile'
 function App() {
   return (
     <>
@@ -15,6 +17,9 @@ function App() {
         <Route path='/feed' element={<Feed/>}/>
         <Route path='/CreatePost' element={<ProtectedRoute><CreatePost/></ProtectedRoute>
         }/>
+        <Route path='/Profile' element={<ProtectedRoute><Profile/></ProtectedRoute>
+        }/>
+        <Route path="/update-post/:id" element={<EditPost />} />
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Signup' element={<Signup/>}/>
       </Routes>

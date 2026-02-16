@@ -55,9 +55,17 @@ const Feed = () => {
 
         {/* Right Section: Logout Button */}
         <div className="flex-1 flex justify-end">
-          <div className="rotate-3">
-            <LogoutButton />
-          </div>
+          <button
+    onClick={() => navigate('/profile')}
+    className="group relative px-6 py-2 font-black uppercase tracking-widest text-sm
+               bg-cyan-400 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+               hover:shadow-none hover:translate-x-1 hover:translate-y-1
+               transition-all active:bg-cyan-500 cursor-pointer"
+  >
+    <span className="relative z-10 flex items-center gap-2">
+      My Profile <span className="text-xl">👤</span>
+    </span>
+  </button>
         </div>
       </header>
 

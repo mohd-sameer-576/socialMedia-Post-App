@@ -4,18 +4,18 @@ import { useNavigate } from "react-router-dom";
 const LogoutButton = () => {
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    try {
-      await axios.post(
-        "http://localhost:3000/api/auth/logout-user",
-        {},
-        { withCredentials: true }
-      );
-      navigate("/login");
-    } catch (error) {
-      console.error(error.response?.data || error.message);
-    }
-  };
+ const handleLogout = async () => {
+  try {
+    await axios.post("http://localhost:3000/api/auth/logout-user", {}, { withCredentials: true });
+    
+    // CLEAR THE USER DATA
+    localStorage.removeItem('user'); 
+    
+    navigate("/login");
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <button

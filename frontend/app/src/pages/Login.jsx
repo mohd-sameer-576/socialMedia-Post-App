@@ -23,7 +23,11 @@ const Login = () => {
         },
       }
     );
-
+if (res.data.user) {
+  // Save the user object as a string in localStorage
+  localStorage.setItem('user', JSON.stringify(res.data.user));
+  navigate('/feed');
+}
     console.log(res.data); 
     navigate("/feed");
 
